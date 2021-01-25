@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html >
+<!--From https://codepen.io/frytyler/pen/EGdtg-->
+<head>
+  <meta charset="UTF-8">
+  <title>Machine Learning Framework</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+  
+</head>
+
+<body>
+
+   <!-- Navigation -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+      <div class="container">
+        <a class="navbar-brand" href="/">Rockfall Forecasting System</a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="/">Home
+                <span class="sr-only">(current)</span>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="http://www.linkedin.com/in/thanasis-zoumpekas" target="_blank">About Me</a>
+              <!--<a class="nav-link" href="#">About</a>-->
+            </li>
+            <!--<li class="nav-item">
+              <a class="nav-link" href="#">Services</a>
+            </li>-->
+            <li class="nav-item">
+              <a class="nav-link" href="mailto:thanasis.zoumpekas@ub.edu?subject=Contact%20-%20Rockfall%Forecasting%System">Contact</a>
+            </li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+
+    <div class="login">
+  <h1>Rockfall Forecasting System</h1>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+        <input type="text" name="x" placeholder="x" required="required" />
+        <input type="text" name="y" placeholder="y" required="required" />
+        <input type="text" name="z" placeholder="z" required="required" />
+        <input type="text" name="n_points" placeholder="number of points" required="required" />
+        <input type="text" name="n_order" placeholder="number of order" required="required" />
+        <input type="text" name="volume" placeholder="volume" required="required" />
+        <input type="text" name="positive_volume" placeholder="positive volume" required="required" />
+        <input type="text" name="negative_volume" placeholder="negative volume" required="required" />
+        <input type="text" name="area" placeholder="area" required="required" />
+        <input type="text" name="class_1_mean" placeholder="class 1 mean" required="required" />
+        <input type="text" name="class_1_sigma" placeholder="class 1 sigma" required="required" />
+        <input type="text" name="class_2_mean" placeholder="class 2 mean" required="required" />
+        <input type="text" name="class_2_sigma" placeholder="class 2 sigma" required="required" />
+        <input type="text" name="class_3_mean" placeholder="class 3 mean" required="required" />
+        <input type="text" name="class_3_sigma" placeholder="class 3 sigma" required="required" />
+        <input type="text" name="class_4_mean" placeholder="class 4 mean" required="required" />
+        <input type="text" name="class_4_sigma" placeholder="class 4 sigma" required="required" />
+
+        <input type="text" name="n_orientations_origin" placeholder="n orientations origin" required="required" />
+        <input type="text" name="intensity_mean_origin" placeholder="intensity mean origin" required="required" />
+        <input type="text" name="intensity_sigma_origin" placeholder="intensity sigma_origin" required="required" />
+        <input type="text" name="intensity_mean_destination" placeholder="intensity mean destination" required="required" />
+        <input type="text" name="intensity_sigma_destination" placeholder="intensity sigma destination" required="required" />
+        <input type="text" name="correlation_index" placeholder="correlation index" required="required" />
+        <input type="text" name="orientation_mean_origin" placeholder="orientation mean origin" required="required" />
+        <input type="text" name="slope_mean_origin" placeholder="slope mean origin" required="required" />
+        <input type="text" name="orientation_mean_destination" placeholder="orientation mean destination" required="required" />
+        <input type="text" name="slope_mean_destination" placeholder="slope mean destination" required="required" />
+        <input type="text" name="coplanararity_index_mean_origin" placeholder="coplanararity index mean origin" required="required" />
+        <input type="text" name="coplanararity_index_sigma_origin" placeholder="coplanararity index sigma origin" required="required" />
+        <input type="text" name="colinearity_index_mean_origin" placeholder="colinearity index mean origin" required="required" />
+        <input type="text" name="colinearity_index_sigma_origin" placeholder="colinearity index sigma origin" required="required" />
+        <input type="text" name="coplanararity_index_mean_destination" placeholder="coplanararity index mean destination" required="required" />
+        <input type="text" name="coplanararity_index_sigma_destination" placeholder="coplanararity index sigma destination" required="required" />
+        <input type="text" name="colinearity_index_mean_destination" placeholder="colinearity index mean destination" required="required" />
+        <input type="text" name="colinearity_index_sigma_destination" placeholder="colinearity index sigma destination" required="required" />
+        <input type="text" name="angles_mean" placeholder="angles mean" required="required" />
+        <input type="text" name="angles_sigma" placeholder="angles sigma" required="required" />
+
+
+
+
+        <button type="submit" class="btn btn-primary btn-block btn-large">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+ 
+
+
+
+</body>
+</html>
