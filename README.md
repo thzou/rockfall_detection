@@ -1,2 +1,2 @@
-# rockfall_forecasting
+# rockfall_detection
 Intelligent Rockfall Forecasting Software
